@@ -60,13 +60,13 @@ export default function CustomCursor() {
           width: 64px; 
           height: 64px;
           border-radius: 50%;
-          background-color: rgba(255, 255, 255, 0.1);
-          backdrop-filter: blur(8px);
-          -webkit-backdrop-filter: blur(8px);
-          border: 1px solid rgba(255, 255, 255, 0.4);
+          background-color: rgba(255, 255, 255, 0.05);
+          backdrop-filter: blur(2px);
+          -webkit-backdrop-filter: blur(2px);
+          border: none;
           pointer-events: none;
           z-index: 9999;
-          box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+          box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
           transition: scale 0.2s ease, background-color 0.2s;
         }
         

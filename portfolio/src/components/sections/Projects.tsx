@@ -8,7 +8,7 @@ export default function Projects() {
       desc: "採用 DDD 架構開發的高併發 API，實現購物車、訂單、WebSocket 即時通知。",
       link: "https://github.com/tangyuweng/ecom",
       year: "2025",
-      image: "/ecommerce.png"
+      image: import.meta.env.BASE_URL + "ecommerce.png"
     },
     {
       title: "智慧製造 AI",
@@ -16,7 +16,7 @@ export default function Projects() {
       desc: "設計直覺的戰情室儀表板，將冰冷的良率數據轉化為動態視覺圖表。",
       link: "#",
       year: "2024",
-      image: "/manufacturing.png"
+      image: import.meta.env.BASE_URL + "manufacturing.png"
     },
     {
       title: "焊接檢測系統",
@@ -24,7 +24,7 @@ export default function Projects() {
       desc: "優化操作流程，透過狀態機邏輯簡化複雜的焊接參數設定。",
       link: "#",
       year: "2025",
-      image: "/welding.png"
+      image: import.meta.env.BASE_URL + "welding.png"
     }
   ];
 

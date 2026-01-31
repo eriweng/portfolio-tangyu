@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Github, Mail } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Magnetic from '../layout/Magnetic';
 
 const navLinks = [
   { name: '關於我', href: '#about' },
-  { name: '專業技能', href: '#skills' },
-  { name: '工作經歷', href: '#experience' },
-  { name: '專案成就', href: '#projects' },
+  { name: '設計與技能', href: '#skills' },
+  { name: '經歷', href: '#experience' },
+  { name: '精選專案', href: '#projects' },
   { name: '聯絡資訊', href: '#contact' },
 ];
 
@@ -30,37 +31,42 @@ export default function Header() {
         left: 0,
         right: 0,
         zIndex: 'var(--z-nav)',
-        backgroundColor: isScrolled ? 'rgba(15, 23, 42, 0.9)' : 'transparent',
-        backdropFilter: isScrolled ? 'blur(10px)' : 'none',
-        borderBottom: isScrolled ? '1px solid rgba(255,255,255,0.1)' : 'none',
-        transition: 'all 0.3s ease'
+        backgroundColor: isScrolled ? 'rgba(15, 23, 42, 0.8)' : 'transparent',
+        backdropFilter: isScrolled ? 'blur(12px)' : 'none',
+        borderBottom: isScrolled ? '1px solid rgba(255,255,255,0.05)' : 'none',
+        transition: 'all 0.4s ease'
       }}
     >
-      <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '80px' }}>
-        <a href="#" style={{ fontSize: '1.5rem', fontWeight: 700, letterSpacing: '-0.02em', display: 'flex', alignItems: 'center', gap: '8px' }}>
-          tangyu<span style={{ color: 'var(--color-cta)' }}>.dev</span>
+      <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '90px' }}>
+        <a href="#" style={{ fontSize: '1.8rem', fontWeight: 800, letterSpacing: '-0.02em', display: 'flex', alignItems: 'center', gap: '8px' }}>
+          eri<span style={{ color: 'var(--color-cta)' }}>.design</span>
         </a>
 
         {/* Desktop Nav */}
         <nav className="desktop-nav" style={{ display: 'none', gap: '2rem', alignItems: 'center' }}>
           {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              style={{ fontSize: '0.9rem', fontWeight: 500, color: 'var(--color-text-muted)' }}
-              className="nav-link"
-            >
-              {link.name}
-            </a>
+            <Magnetic key={link.name}>
+              <a
+                href={link.href}
+                style={{ fontSize: '0.95rem', fontWeight: 500, color: 'var(--color-text-muted)', padding: '0.5rem' }}
+                className="nav-link"
+              >
+                {link.name}
+              </a>
+            </Magnetic>
           ))}
           <div style={{ width: '1px', height: '24px', backgroundColor: 'rgba(255,255,255,0.1)' }}></div>
           <div style={{ display: 'flex', gap: '1rem' }}>
-            <a href="https://github.com/tangyuweng" target="_blank" rel="noopener noreferrer">
-              <Github size={20} />
-            </a>
-            <a href="mailto:tangyuw99@gmail.com">
-              <Mail size={20} />
-            </a>
+            <Magnetic>
+              <a href="https://github.com/tangyuweng" target="_blank" rel="noopener noreferrer" style={{ padding: '0.5rem' }}>
+                <Github size={20} />
+              </a>
+            </Magnetic>
+            <Magnetic>
+              <a href="mailto:tangyuw99@gmail.com" style={{ padding: '0.5rem' }}>
+                <Mail size={20} />
+              </a>
+            </Magnetic>
           </div>
         </nav>
 
@@ -78,17 +84,18 @@ export default function Header() {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
             style={{
               position: 'absolute',
-              top: '80px',
+              top: '90px',
               left: 0,
               right: 0,
               backgroundColor: 'var(--color-background)',
               borderBottom: '1px solid rgba(255,255,255,0.1)',
-              padding: '1rem'
+              padding: '1rem',
+              overflow: 'hidden'
             }}
           >
             <nav style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
@@ -97,7 +104,7 @@ export default function Header() {
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  style={{ display: 'block', padding: '0.5rem 0', fontSize: '1.1rem' }}
+                  style={{ display: 'block', padding: '0.8rem 0', fontSize: '1.2rem', textAlign: 'center' }}
                 >
                   {link.name}
                 </a>

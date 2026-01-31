@@ -7,10 +7,12 @@ import Experience from './components/sections/Experience'
 import Projects from './components/sections/Projects'
 import Contact from './components/sections/Contact'
 import Footer from './components/layout/Footer'
+import CustomCursor from './components/layout/CustomCursor'
 
 function App() {
   return (
     <div className="main-wrapper">
+      <CustomCursor />
       <Header />
       <main>
         <Hero />

@@ -1,40 +1,66 @@
+import TiltCard from '../layout/TiltCard';
+import { motion } from 'framer-motion';
+
 export default function Projects() {
+  const projects = [
+    {
+      title: "電子商務系統後端",
+      tech: "Go, Gin, DDD, Docker",
+      desc: "採用 DDD 架構開發的高併發電商 API，實現購物車、訂單、WebSocket 即時通知。",
+      link: "https://github.com/tangyuweng/ecom",
+      color: "#22d3ee" // Cyan
+    },
+    {
+      title: "智慧製造 AI 整合介面",
+      tech: "UI Design, WebSocket, PLC",
+      desc: "設計直覺的戰情室儀表板，將冰冷的良率數據轉化為動態視覺圖表，提升產線監控效率。",
+      link: "#",
+      color: "#f472b6" // Pink
+    },
+    {
+      title: "鐵桶焊接檢測系統",
+      tech: "C# WPF, UX Flow",
+      desc: "優化操作流程，透過狀態機邏輯簡化複雜的焊接參數設定，降低作業員學習成本。",
+      link: "#",
+      color: "#fb923c" // Orange
+    }
+  ];
+
   return (
     <section id="projects" className="section-padding" style={{ backgroundColor: 'var(--color-secondary)' }}>
       <div className="container">
-        <span style={{ color: 'var(--color-cta)', fontWeight: 600 }}>WHAT I'VE BUILT</span>
-        <h2 style={{ fontSize: '2.5rem', marginBottom: '3rem' }}>專案成就</h2>
+        <span style={{ color: 'var(--color-cta)', fontWeight: 600 }}>PORTFOLIO</span>
+        <h2 style={{ fontSize: '2.5rem', marginBottom: '3rem' }}>精選專案</h2>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
-          {/* Project 1 */}
-          <div style={{ backgroundColor: 'var(--color-background)', padding: '2rem', borderRadius: '8px' }}>
-            <h3 style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>電子商務系統後端服務</h3>
-            <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', marginBottom: '1rem' }}>Go, Gin, GORM, MySQL, Redis, Docker, JWT</p>
-            <p style={{ marginBottom: '1.5rem' }}>
-              採用 DDD (領域驅動設計) 架構開發的電商 API。
-              功能實現：包含商品管理、購物車、訂單處理、用戶管理及 WebSocket 即時通訊。
-            </p>
-            <a href="https://github.com/tangyuweng/ecom" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-cta)', fontWeight: 500 }}>查看程式碼 →</a>
-          </div>
-
-          {/* Project 2 */}
-          <div style={{ backgroundColor: 'var(--color-background)', padding: '2rem', borderRadius: '8px' }}>
-            <h3 style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>智慧製造與 AI 視覺檢測整合系統</h3>
-            <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', marginBottom: '1rem' }}>系統整合, PLC, AI 檢測</p>
-            <p style={{ marginBottom: '1.5rem' }}>
-              建立設備通訊架構，確保 AI 模組、機械手臂與 PLC 間的資料流穩定。開發即時檢測狀態顯示與產線稼動率監控介面。
-              協助客戶將檢測良率由 93% 提升至 97% 以上。
-            </p>
-          </div>
-
-          {/* Project 3 */}
-          <div style={{ backgroundColor: 'var(--color-background)', padding: '2rem', borderRadius: '8px' }}>
-            <h3 style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>鐵桶焊接品質檢測系統</h3>
-            <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', marginBottom: '1rem' }}>C# WPF, 狀態機, PLC</p>
-            <p style={{ marginBottom: '1.5rem' }}>
-              使用 C# WPF 顯示即時生產資訊（良率、空壓狀態等）。後端控制：設計狀態機流程，處理 PLC/感測器通訊與檢測異常保護。
-            </p>
-          </div>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2.5rem' }}>
+          {projects.map((proj, index) => (
+            <TiltCard key={index} style={{ height: '100%' }}>
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                style={{
+                  backgroundColor: 'var(--color-background)',
+                  padding: '2.5rem',
+                  borderRadius: '16px',
+                  height: '100%',
+                  border: '1px solid rgba(255,255,255,0.05)',
+                  background: `linear-gradient(145deg, var(--color-background) 0%, #1a2336 100%)`
+                }}
+              >
+                <div style={{ width: '40px', height: '40px', borderRadius: '8px', backgroundColor: proj.color, marginBottom: '1.5rem', opacity: 0.8 }}></div>
+                <h3 style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>{proj.title}</h3>
+                <p style={{ fontSize: '0.9rem', color: proj.color, marginBottom: '1rem', fontWeight: 600 }}>{proj.tech}</p>
+                <p style={{ marginBottom: '2rem', lineHeight: 1.6 }}>
+                  {proj.desc}
+                </p>
+                <a href={proj.link} target="_blank" rel="noopener noreferrer" style={{ color: 'white', fontWeight: 500, textDecoration: 'underline', textUnderlineOffset: '4px' }}>
+                  查看詳情 →
+                </a>
+              </motion.div>
+            </TiltCard>
+          ))}
         </div>
       </div>
     </section>

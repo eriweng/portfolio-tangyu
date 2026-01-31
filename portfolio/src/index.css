@@ -1,21 +1,34 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@400;600;800&display=swap');
 
 :root {
-  /* Colors */
-  --color-primary: #1E293B;
-  --color-secondary: #334155;
-  --color-cta: #22C55E;
-  --color-background: #0F172A;
-  --color-text: #F8FAFC;
-  --color-text-muted: #94A3B8;
+  /* 90s Vaporwave Palette */
+  --color-primary: #FF00FF;
+  /* Hot Pink */
+  --color-secondary: #00FFFF;
+  /* Cyan */
+  --color-accent: #FFFF00;
+  /* Yellow */
+  --color-background: #10002B;
+  /* Deep Violet */
+  --color-surface: #240046;
+  /* Lighter Violet */
+  --color-text: #E0AAFF;
+  /* Lavender */
+  --color-text-bold: #FFFFFF;
 
   /* Typography */
-  --font-heading: 'Archivo', sans-serif;
-  --font-body: 'Space Grotesk', sans-serif;
+  --font-heading: 'Abril Fatface', serif;
+  /* Magazine Style */
+  --font-body: 'Space Mono', monospace;
+  /* Tech/Retro */
+  --font-ui: 'Work Sans', sans-serif;
 
-  /* Spacing */
+  /* Spacing & Layout */
   --spacing-container: 1280px;
-  
+  --border-width: 3px;
+  --box-shadow: 6px 6px 0px 0px;
+  /* Brutalist Shadow */
+
   /* Z-Index */
   --z-nav: 50;
   --z-overlay: 100;
@@ -27,35 +40,101 @@ body {
   background-color: var(--color-background);
   color: var(--color-text);
   font-family: var(--font-body);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-image:
+    linear-gradient(rgba(255, 0, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 0, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  /* Grid Background */
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading);
   margin: 0;
-  color: white;
+  color: var(--color-text-bold);
+  font-weight: 400;
+  /* Abril is bold by default */
+  letter-spacing: 0.02em;
 }
 
 p {
-  line-height: 1.6;
-  color: var(--color-text-muted);
+  line-height: 1.8;
+  font-family: var(--font-ui);
+  font-weight: 400;
 }
 
 a {
   color: inherit;
   text-decoration: none;
-  transition: color 0.2s;
+  transition: all 0.2s;
 }
 
-button {
-  border: none;
-  background: none;
+/* Retro Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+  border-left: 2px solid var(--color-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border: 2px solid var(--color-background);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-secondary);
+}
+
+/* Retro Utilities */
+.retro-box {
+  border: var(--border-width) solid var(--color-primary);
+  background: var(--color-surface);
+  box-shadow: var(--box-shadow) var(--color-secondary);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.retro-box:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0px 0px var(--color-secondary);
+}
+
+.retro-btn {
+  background: var(--color-primary);
+  color: white;
+  border: 2px solid white;
+  padding: 1rem 2rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  text-transform: uppercase;
   cursor: pointer;
-  font-family: inherit;
+  box-shadow: 4px 4px 0px var(--color-secondary);
+  transition: all 0.2s;
+  display: inline-block;
 }
 
-/* Utilities */
+.retro-btn:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px var(--color-secondary);
+}
+
+.retro-btn.outline {
+  background: transparent;
+  border: 2px solid var(--color-secondary);
+  color: var(--color-secondary);
+  box-shadow: 4px 4px 0px var(--color-primary);
+}
+
+.title-shadow {
+  text-shadow: 3px 3px 0px var(--color-primary), 6px 6px 0px var(--color-secondary);
+}
+
 .container {
   max-width: var(--spacing-container);
   margin: 0 auto;
@@ -64,12 +143,6 @@ button {
   box-sizing: border-box;
 }
 
-.text-gradient {
-  background: linear-gradient(to right, #fff, #94a3b8);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
 .section-padding {
-  padding: 6rem 0;
+  padding: 8rem 0;
 }

@@ -1,57 +1,71 @@
 import { motion } from 'framer-motion';
-import Magnetic from '../layout/Magnetic';
 
 export default function Hero() {
   return (
-    <section id="hero" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', paddingTop: '80px', position: 'relative', overflow: 'hidden' }}>
+    <section id="hero" style={{
+      minHeight: '100vh',
+      display: 'flex',
+      alignItems: 'center',
+      paddingTop: '80px',
+      position: 'relative',
+      overflow: 'hidden'
+    }}>
 
-      {/* Background Decor */}
-      <motion.div
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.3, 0.5, 0.3],
-        }}
-        transition={{ duration: 8, repeat: Infinity }}
-        style={{
-          position: 'absolute',
-          top: '20%',
-          right: '-10%',
-          width: '500px',
-          height: '500px',
-          background: 'radial-gradient(circle, rgba(34,197,94,0.2) 0%, rgba(15,23,42,0) 70%)',
-          borderRadius: '50%',
-          zIndex: -1
-        }}
-      />
+      {/* Decorative Geometric Shapes */}
+      <div style={{ position: 'absolute', top: '20%', right: '10%', width: '100px', height: '100px', border: '4px solid var(--color-secondary)', transform: 'rotate(15deg)' }}></div>
+      <div style={{ position: 'absolute', bottom: '15%', left: '5%', width: '150px', height: '150px', backgroundColor: 'var(--color-primary)', borderRadius: '50%', opacity: 0.2 }}></div>
+      <div style={{ position: 'absolute', top: '15%', left: '40%', width: '0', height: '0', borderLeft: '30px solid transparent', borderRight: '30px solid transparent', borderBottom: '50px solid var(--color-accent)', transform: 'rotate(-20deg)' }}></div>
 
-      <div className="container">
+      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: "backOut" }}
         >
-          <span style={{ color: 'var(--color-cta)', fontFamily: 'var(--font-heading)', fontWeight: 600, letterSpacing: '0.05em' }}>
-            UI/UX DESIGNER & BACKEND ENGINEER
-          </span>
-          <h1 style={{ fontSize: 'clamp(3rem, 6vw, 6rem)', lineHeight: 1.1, marginTop: '1rem', marginBottom: '1.5rem' }}>
-            翁莉雯 (Eri) <br />
-            <span className='text-gradient'>創造極致互動體驗</span>
-          </h1>
-          <p style={{ maxWidth: '600px', fontSize: '1.3rem', marginBottom: '3rem', lineHeight: 1.6 }}>
-            不只是<strong>Golang 後端工程師</strong>，更是一位熱愛 <strong>UI/UX 設計</strong> 的創造者。我將自動化的精準邏輯與設計的感性美學結合，打造穩定且迷人的數位產品。
-          </p>
+          <div style={{
+            display: 'inline-block',
+            padding: '0.5rem 1rem',
+            backgroundColor: 'var(--color-accent)',
+            color: 'var(--color-background)',
+            fontWeight: 'bold',
+            fontFamily: 'var(--font-body)',
+            marginBottom: '1.5rem',
+            boxShadow: '4px 4px 0 var(--color-primary)'
+          }}>
+            UI/UX DESIGNER & BACKEND DEV
+          </div>
 
-          <div style={{ display: 'flex', gap: '1.5rem' }}>
-            <Magnetic>
-              <a href="#projects" className="btn btn-primary" style={{ padding: '1rem 2rem', fontSize: '1.1rem' }}>
-                查看設計與專案
-              </a>
-            </Magnetic>
-            <Magnetic>
-              <a href="#contact" className="btn" style={{ border: '1px solid rgba(255,255,255,0.2)', color: 'white', padding: '1rem 2rem', fontSize: '1.1rem' }}>
-                聯絡我
-              </a>
-            </Magnetic>
+          <h1 className="title-shadow" style={{
+            fontSize: 'clamp(4rem, 8vw, 8rem)',
+            lineHeight: 0.9,
+            marginBottom: '2rem',
+            maxWidth: '900px'
+          }}>
+            翁莉雯 <br />
+            <span style={{ color: 'transparent', WebkitTextStroke: '2px var(--color-secondary)' }}>(Eri)</span> WENG
+          </h1>
+
+          <div style={{
+            background: 'rgba(255,255,255,0.05)',
+            backdropFilter: 'blur(5px)',
+            padding: '2rem',
+            borderLeft: '4px solid var(--color-primary)',
+            maxWidth: '600px',
+            marginBottom: '3rem'
+          }}>
+            <p style={{ fontSize: '1.2rem', margin: 0 }}>
+              <strong style={{ color: 'var(--color-secondary)' }}>「邏輯是骨架，設計是靈魂。」</strong><br /><br />
+              我將自動化的精準控制與 90 年代的狂野美學結合，為數位產品注入獨特的個性與穩定的核心。
+            </p>
+          </div>
+
+          <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
+            <a href="#projects" className="retro-btn">
+              瀏覽專案 →
+            </a>
+            <a href="#contact" className="retro-btn outline">
+              聯絡我 ☎
+            </a>
           </div>
         </motion.div>
       </div>

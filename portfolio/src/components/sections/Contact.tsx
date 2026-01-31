@@ -4,37 +4,35 @@ export default function Contact() {
   return (
     <section id="contact" className="section-padding">
       <div className="container">
-        <span style={{ color: 'var(--color-cta)', fontWeight: 600 }}>GET IN TOUCH</span>
-        <h2 style={{ fontSize: '2.5rem', marginBottom: '3rem' }}>聯絡資訊</h2>
-
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-            <div style={{ padding: '1rem', backgroundColor: 'var(--color-secondary)', borderRadius: '50%' }}>
-              <Mail size={24} color="var(--color-cta)" />
-            </div>
-            <div>
-              <div style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)' }}>電子信箱</div>
-              <a href="mailto:tangyuw99@gmail.com" style={{ fontSize: '1.1rem' }}>tangyuw99@gmail.com</a>
-            </div>
+        <div style={{ border: '4px solid var(--color-text)', padding: '3rem', position: 'relative' }}>
+          <div style={{
+            position: 'absolute',
+            top: '-20px',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            backgroundColor: 'var(--color-background)',
+            padding: '0 20px'
+          }}>
+            <h2 style={{ fontSize: '2.5rem', color: 'var(--color-accent)' }}>LET'S CONNECT</h2>
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-            <div style={{ padding: '1rem', backgroundColor: 'var(--color-secondary)', borderRadius: '50%' }}>
-              <Phone size={24} color="var(--color-cta)" />
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '3rem', marginTop: '2rem' }}>
+            <div style={{ textAlign: 'center' }}>
+              <div style={{ marginBottom: '1rem' }}><Mail size={40} color="var(--color-primary)" /></div>
+              <h3 style={{ fontSize: '1.2rem', marginBottom: '0.5rem' }}>EMAIL</h3>
+              <a href="mailto:tangyuw99@gmail.com" style={{ fontSize: '1.1rem', borderBottom: '2px solid var(--color-secondary)' }}>tangyuw99@gmail.com</a>
             </div>
-            <div>
-              <div style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)' }}>聯絡電話</div>
+
+            <div style={{ textAlign: 'center' }}>
+              <div style={{ marginBottom: '1rem' }}><Phone size={40} color="var(--color-primary)" /></div>
+              <h3 style={{ fontSize: '1.2rem', marginBottom: '0.5rem' }}>PHONE</h3>
               <div style={{ fontSize: '1.1rem' }}>0909-197-319</div>
             </div>
-          </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-            <div style={{ padding: '1rem', backgroundColor: 'var(--color-secondary)', borderRadius: '50%' }}>
-              <MapPin size={24} color="var(--color-cta)" />
-            </div>
-            <div>
-              <div style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)' }}>通訊地址</div>
-              <div style={{ fontSize: '1.1rem' }}>台南市歸仁區和順路***</div>
+            <div style={{ textAlign: 'center' }}>
+              <div style={{ marginBottom: '1rem' }}><MapPin size={40} color="var(--color-primary)" /></div>
+              <h3 style={{ fontSize: '1.2rem', marginBottom: '0.5rem' }}>LOCATION</h3>
+              <div style={{ fontSize: '1.1rem' }}>Tainan City, Taiwan</div>
             </div>
           </div>
         </div>

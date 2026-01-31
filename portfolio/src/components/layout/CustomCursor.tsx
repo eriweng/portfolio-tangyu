@@ -6,14 +6,15 @@ export default function CustomCursor() {
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
 
-  const springConfig = { damping: 25, stiffness: 700 };
+  const springConfig = { damping: 20, stiffness: 300, mass: 0.5 };
   const cursorXSpring = useSpring(cursorX, springConfig);
   const cursorYSpring = useSpring(cursorY, springConfig);
 
   useEffect(() => {
     const moveCursor = (e: MouseEvent) => {
-      cursorX.set(e.clientX - 16);
-      cursorY.set(e.clientY - 16);
+      // Offset by half width/height to center
+      cursorX.set(e.clientX - 32);
+      cursorY.set(e.clientY - 32);
     };
 
     const handleMouseOver = (e: MouseEvent) => {
@@ -47,9 +48,7 @@ export default function CustomCursor() {
         style={{
           translateX: cursorXSpring,
           translateY: cursorYSpring,
-          scale: isHovering ? 2.5 : 1,
-          backgroundColor: isHovering ? 'var(--color-cta)' : 'white',
-          mixBlendMode: 'difference' // Cool effect
+          scale: isHovering ? 1.5 : 1,
         }}
       />
 
@@ -58,15 +57,19 @@ export default function CustomCursor() {
           position: fixed;
           top: 0;
           left: 0;
-          width: 32px;
-          height: 32px;
+          width: 64px; 
+          height: 64px;
           border-radius: 50%;
-          background-color: white;
+          background-color: rgba(255, 255, 255, 0.1);
+          backdrop-filter: blur(8px);
+          -webkit-backdrop-filter: blur(8px);
+          border: 1px solid rgba(255, 255, 255, 0.4);
           pointer-events: none;
           z-index: 9999;
+          box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+          transition: scale 0.2s ease, background-color 0.2s;
         }
         
-        /* Hide default cursor only on devices with hover */
         @media (hover: hover) and (pointer: fine) {
           body {
             cursor: none;
